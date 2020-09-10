@@ -17,13 +17,6 @@ function remove_menus() {
 
 add_action( "admin_menu", "remove_menus" );
 
-function headless_admin_enqueue_scripts() {
-	wp_register_script("admin-ui", get_template_directory_uri() . "/assets/js/admin-ui.js", array(), null, true); // Admin scripts
-	wp_enqueue_script("admin-ui"); // Enqueue it!
-}
-
-add_action("acf/input/admin_enqueue_scripts", "headless_admin_enqueue_scripts");
-
 // Remove Admin bar
 // function remove_admin_bar()
 // {
@@ -38,12 +31,12 @@ include_once("functions/custom-post-types.php");
 /*------------------------------------*\
 	Custom Shortcodes
 \*------------------------------------*/
-// include_once("functions/custom-shortcodes.php");
+include_once("functions/custom-shortcodes.php");
 
 /*------------------------------------*\
 	Custom Taxonomies
 \*------------------------------------*/
-// include_once("functions/custom-taxonomy.php");
+include_once("functions/custom-taxonomies.php");
 
 /*--------------------------------------*\
 	Custom Admin Menu Order
