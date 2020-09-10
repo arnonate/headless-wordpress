@@ -1,8 +1,4 @@
 <?php
-/*------------------------------------*\
-	Custom Shortcodes
-\*------------------------------------*/
-
 function headless_shortcode( $atts , $content = null ) {
 	// Attributes
 	$args = shortcode_atts( array(

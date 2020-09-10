@@ -1,8 +1,4 @@
 <?php
-  /*------------------------------------*\
-    Custom Taxonomies
-  \*------------------------------------*/
-
   function headless_taxonomy() {
     $labels = array(
       "name"                       => "Taxonomies",

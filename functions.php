@@ -6,9 +6,6 @@
 
 add_theme_support( "post-thumbnails" );
 
-/*------------------------------------*\
-	Remove Certain Admin Items
-\*------------------------------------*/
 function remove_menus() {
     remove_menu_page( "index.php" ); //Dashboard
     remove_menu_page( "jetpack" ); //Jetpack*
@@ -23,24 +20,10 @@ add_action( "admin_menu", "remove_menus" );
 //     return false;
 // }
 
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
 include_once("functions/custom-post-types.php");
-
-/*------------------------------------*\
-	Custom Shortcodes
-\*------------------------------------*/
 include_once("functions/custom-shortcodes.php");
-
-/*------------------------------------*\
-	Custom Taxonomies
-\*------------------------------------*/
 include_once("functions/custom-taxonomies.php");
 
-/*--------------------------------------*\
-	Custom Admin Menu Order
-\*--------------------------------------*/
 function headless_custom_menu_order( $menu_ord ) {
     if ( !$menu_ord ) return true;
 
@@ -76,16 +59,8 @@ add_action("do_feed_atom", "headless_disable_feed", 1);
 add_action("do_feed_rss2_comments", "headless_disable_feed", 1);
 add_action("do_feed_atom_comments", "headless_disable_feed", 1);
 
+// Return `null` if an empty value is returned from ACF.
 if (!function_exists("acf_nullify_empty")) {
-  /**
-   * Return `null` if an empty value is returned from ACF.
-   *
-   * @param mixed $value
-   * @param mixed $post_id
-   * @param array $field
-   *
-   * @return mixed
-   */
   function acf_nullify_empty($value, $post_id, $field) {
       if (empty($value)) {
           return null;
@@ -93,5 +68,4 @@ if (!function_exists("acf_nullify_empty")) {
       return $value;
   }
 }
-
 add_filter("acf/format_value", "acf_nullify_empty", 100, 3);

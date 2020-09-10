@@ -1,8 +1,4 @@
 <?php
-  /*------------------------------------*\
-    Custom Post Types
-  \*------------------------------------*/
-
   add_action( "init", "create_custom_post_type" );
 
   function create_custom_post_type() {
